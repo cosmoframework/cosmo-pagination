@@ -35,7 +35,9 @@ and give it to the template to create the pagination buttons.
              (= 1 (get-nb-pages 1 200))))
 
 (defun make-pagination (&key (page 1) (nb-elements 0) (page-size 200)
-                         (max-nb-buttons 5))
+                          (max-nb-buttons 5)
+                          q
+                          href)
   "From a current page number, a total number of elements, a page size,
   return a dict with all of that, and the total number of pages.
 
@@ -58,4 +60,7 @@ and give it to the template to create the pagination buttons.
                    :page-size page-size
                    :nb-pages nb-pages
                    :max-nb-buttons max-nb-buttons
+                   :href (or href
+                             ;; &page=<nb> is appended in the template.
+                             (format nil "/search?q={{ ~a }}" (or q "")))
                    :text-label (format nil "Page ~a / ~a" page nb-pages))))
