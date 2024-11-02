@@ -29,6 +29,12 @@ Then give this object to the template to create the pagination buttons.
 
 The `href` will be expanded with a `&page=` and the current page. So, at the time of writing, you must add a "?q=" part. PR and discussion welcome. It works for now©.
 
+## Install
+
+Clone and `(ql:quickload "cosmo-pagination")`.
+
+In Ultralisp.
+
 ## Use in templates
 
 You can pass the pagination object to your template and build the HTML
